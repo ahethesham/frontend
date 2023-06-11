@@ -1,0 +1,75 @@
+body{
+    background-color: darkblue;
+}
+.Grid{
+    position: relative;
+    bottom:750px;
+    left:420px;
+    background-color: bisque;
+    height: 430px;
+    width:395px;
+    border: 5px solid black;
+}
+.Row{
+position: relative;
+height:80px;
+width:400px;
+border: 2px solid black;
+display: inline-block;
+}
+.Element{
+    position: relative;
+    height: 80px;
+    width:75px;
+    border: 2px solid black;
+    display: inline-block;
+    background-color: bisque;
+}
+.instruction{
+    position: relative;
+    left:850px;
+    bottom:1200px;
+    height: 500px;
+    width: 550px;
+    background-color: black;
+    color:white;
+}
+.learn{
+    position: relative;
+    top:50px;
+    height:800px;
+    background-color:lightgray;
+    width:395px;
+    border: 5px solid black;
+}
+.logicpanel{
+    position: relative;
+    bottom:1200px;
+    left:400px;
+    height:150px;
+    width:1200px;
+    color:white;
+    font-size: 30px;
+    background-color:blue;
+}
+.controls{
+    position: relative;
+    bottom:1200px;
+    left:400px;
+    height:200px;
+    width:1200px;
+    color:black;
+    font-size: 30px;
+}
+.play{
+    position: relative;
+    height: 80px;
+    width:75px;
+    left:800px;
+    bottom:1400px;
+    border: 2px solid black;
+    display: inline-block;
+    background-color: yellowgreen;
+    font-size: 30px;
+}
+   
