@@ -5,126 +5,138 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color:lightyellow;
 
+ /* background-image: url('github_background.png');
+  background-size: 2000px 1500px;
+  background-repeat: no-repeat,no-repeat;
+  background-position-x:center;
+  background-position-y: top;*/
+  background-color: black;
+  position: relative;
+  width: 1200px;
+  overflow: auto;
+
+ 
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-body{
-  background-color: darkblue;
-}
-.Grid{
+.Heading{
+
+  width:80%;
   position: relative;
-  bottom:750px;
-  left:420px;
-  background-color: bisque;
-  height: 430px;
-  width:395px;
-  border: 5px solid black;
+
 }
-.Row{
+hr{
+width:1500px;
+height: 0.01cm;
+background-color: rgb(12, 12, 14);
+color:darkblue;
+cursor: pointer;
+}
+.newslogo{
+float: left;
+
 position: relative;
-height:80px;
-width:400px;
-border: 2px solid black;
+height:50px;
+width:50px;
+}
+.newsheading{
 display: inline-block;
+color:white;
+top:15px;
+position: relative;
+font-size: 20px;
+font-weight: bolder;
+font-family: Georgia, 'Times New Roman', Times, serif;
 }
-.Element{
+.headlines{
   position: relative;
-  height: 80px;
-  width:75px;
-  border: 2px solid black;
-  display: inline-block;
-  background-color: bisque;
-}
-.instruction{
-  position: relative;
-  left:850px;
-  bottom:1200px;
-  height: 500px;
-  width: 550px;
-  background-color: black;
-  color:white;
-}
-.learn{
-  position: relative;
-  top:50px;
-  height:800px;
-  background-color:lightgray;
-  width:395px;
-  border: 5px solid black;
-  text-align: center;
-  font-size: 30px;
-  
-}
-.logicpanel{
-  position: relative;
-  bottom:1200px;
-  left:400px;
-  height:150px;
-  width:1200px;
-  color:white;
-  font-size: 30px;
-  background-color:blue;
-}
-.controls{
-  position: relative;
-  bottom:1200px;
   left:400px;
   height:200px;
-  width:1200px;
-  color:black;
-  font-size: 30px;
-}
-.play{
-  position: relative;
-  height: 80px;
-  width:75px;
-  left:800px;
-  bottom:1400px;
+  width:70%;
+  font-weight: 1000;
+  font-family: 'Times New Roman', Times, serif;
+display: inline-block;
+  color: azure;
+  font-size: large;
+  background-color: #1e1e1e;
   border: 2px solid black;
-  display: inline-block;
-  background-color: yellowgreen;
-  font-size: 30px;
+
 }
- .panelbutton{
+.newsimg{
   position: relative;
-  height: 60px;
-  width:60px;
-  border: 2px solid black;
-  display: inline-block;
-  background-color:whitesmoke;
- }
- .controlbutton{
+  height:150px;
+  width:30%;
+display: inline-block;
+}
+.newstext{
   position: relative;
-  height:70px;
-  width:70px;
-  background-color:lightgray;
-  border: 10px solid black;
-  display: inline-block;
- }
- .image{
-  position: relative;
+display: inline-block;
+  height:200px;
+  bottom: 50px;
+  width:50%;
+  text-align: top;
+  overflow-x: auto;
+  color:white;
   overflow: auto;
-  height: 80px;
-  width:60px;
- }
- .arrow{
+
+}
+.Pagenation{
   position: relative;
-  height:70px;
-  width:70px;
-  background-color:lightgray;
-  border: 1px solid black;
+  left:900px;
+ 
   display: inline-block;
- }
- .arrow1{
+}
+.filter{
+  width:350px;
+  height:600px;
+  top:100px;
+  background-color: #1e1e1e;
+  display: inline-block;
+  position:absolute;
+  color:white;
+}
+.filter_ele{
+  display: inline-block;
+  border: 2px solid black;
+  border-radius: 10px;
+  height: 30px;
+  width: 100px;
   position: relative;
-  height: 60px;
-  width:60px;
-  border: 1px solid black;
+  color: rgb(93, 104, 128);
+  text-align: center;
+}
+.search{
   display: inline-block;
-  background-color:light gray;
- }
+  left:1200px;
+  height:50px;
+  width:400px;
+ position: relative;
+}
+.searchinput{
+  position: relative;
+  display: inline-block;
+  background-color: transparent;
+  border: 3px solid wheat;
+  border-radius: 10px;
+  width:200px;
+  height: 30px;
+  color: aliceblue;
+  font-size: large;
+  font-weight: bolder;
+}
+.searchicon{
+  background-image: url("searchicon.png");
+  background-size: 30px 30px;
+  background-position-x:center;
+  background-position-y:top;
+  height:30px;
+  width:50px;
+  background-repeat: no-repeat,no-repeat;
+  display: inline-block;
+  position: relative;
+
+}
