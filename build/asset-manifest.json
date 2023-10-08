@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/Binary.c/static/css/main.8d55e6ee.css",
+    "main.js": "/Binary.c/static/js/main.b4ab89c1.js",
+    "static/media/background.png": "/Binary.c/static/media/background.21a9e1590af6a0c83751.png",
+    "static/media/Os.png": "/Binary.c/static/media/Os.d6a9e8973b7f9e39fba8.png",
+    "static/media/numerical.png": "/Binary.c/static/media/numerical.28b00daf597f5b831d84.png",
+    "static/media/ds.png": "/Binary.c/static/media/ds.aa1abad3c180068d95c5.png",
+    "static/media/Dbms.png": "/Binary.c/static/media/Dbms.8edc4016766608ce8d6e.png",
+    "static/media/java.png": "/Binary.c/static/media/java.f7b6bd40fb91e0f1c29b.png",
+    "static/media/cn.png": "/Binary.c/static/media/cn.14746f004661cef0216e.png",
+    "static/media/aptitude.png": "/Binary.c/static/media/aptitude.e321a5f7e415ab7b6c02.png",
+    "static/media/reasoning.png": "/Binary.c/static/media/reasoning.85d3f056bf2dd9eb765f.png",
+    "static/media/html.png": "/Binary.c/static/media/html.f3aa7827cd5160f3fc1c.png",
+    "static/media/js.png": "/Binary.c/static/media/js.166865dacb77d214f485.png",
+    "static/media/algorithms.png": "/Binary.c/static/media/algorithms.777debc2b4de7fff5e8d.png",
+    "static/media/react.png": "/Binary.c/static/media/react.cd4ab68456d5875b788e.png",
+    "index.html": "/Binary.c/index.html",
+    "main.8d55e6ee.css.map": "/Binary.c/static/css/main.8d55e6ee.css.map",
+    "main.b4ab89c1.js.map": "/Binary.c/static/js/main.b4ab89c1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8d55e6ee.css",
+    "static/js/main.b4ab89c1.js"
+  ]
+}
