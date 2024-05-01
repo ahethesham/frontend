@@ -1,28 +1,31 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { responsive } from "./responsive.js";
 import {Heading} from './heading.js'
 import { Footer } from "./footer.js";
-import { Explore_header } from "./Explore.js";
+import { addresses } from "./index.js";
 let address=[];
 let ans=[],Q
 export class Questions extends React.Component{
     constructor(props){
         super(props)
-        this.state={index:0,sidebar_style:responsive.sidebar_02.main(),image:responsive.questions.image(this.props.obj.image),heading:responsive.questions.heading(),img:this.props.obj.image}
+        this.state={footer:responsive.Q_bar.footer(),index:0,sidebar_style:responsive.sidebar_02.main(),image:responsive.questions.image(this.props.obj.image),heading:responsive.questions.heading(),img:this.props.obj.image}
         this.handleclick=this.handleclick.bind(this)
         this.resize=this.resize.bind(this)
         window.addEventListener('resize',this.resize)
     }
+    componentDidMount(){
+        addresses.Questions=this
+    }
     componentDidUpdate(){
+        addresses.Questions=this
         if(this.state.img!=this.props.obj.image)this.handleclick(0)
     }
     resize(){
-        this.setState((prev)=>{return {index:prev.index,sidebar_style:responsive.sidebar_02.main(),image:responsive.questions.image(this.props.obj.image),
+        this.setState((prev)=>{return {footer:prev.footer,index:prev.index,sidebar_style:responsive.sidebar_02.main(),image:responsive.questions.image(this.props.obj.image),
             heading:responsive.questions.heading(),img:this.props.obj.image}})
     }
     handleclick(ind){
-        this.setState({index:ind,sidebar_style:responsive.sidebar_02.main(),image:responsive.questions.image(this.props.obj.image),
+        this.setState({footer:responsive.Q_bar.footer(),index:ind,sidebar_style:responsive.sidebar_02.main(),image:responsive.questions.image(this.props.obj.image),
             heading:responsive.questions.heading(),img:this.props.obj.image},()=>{
                 for(let i=0;i<address.length;i++)address[i].resize()
                 Q.fetch()
@@ -31,12 +34,8 @@ export class Questions extends React.Component{
     render(){
         return(
             <div>
-            <Heading/>
-            <div style={this.state.image}>
-            </div>
-            <div style={this.state.heading}>
-                {this.props.obj.h1}
-            </div>
+            <Heading logout={this.props.logout}/>
+           
             
             
             <div style={this.state.sidebar_style}>
@@ -50,8 +49,9 @@ export class Questions extends React.Component{
                 }
             </div>  
             <Q_bar link={'http://localhost:8000'+this.props.obj.subtopics[this.state.index][3]}/>
-            <Explore_header/>
+            <div style={this.state.footer}>
            <Footer/>
+           </div>
          </div>
         )
     }
@@ -67,7 +67,12 @@ class Subtopic extends React.Component{
         this.resize=this.resize.bind(this);
         window.addEventListener('resize',this.resize)
     }
-   
+    componentDidMount(){
+        addresses[`Subtopic${this.props.index}`]=this
+    }
+    componentDidUpdate(){
+        addresses[`Subtopic${this.props.index}`]=this
+    }
     resize(){
         this.setState({link:this.props.link,style:responsive.sidebar_02.Element(this.props.flag),text:responsive.sidebar_02.text(),image:responsive.sidebar_02.image(this.props.img)});
     }
@@ -103,9 +108,11 @@ class Q_bar extends React.Component{
     componentDidMount(){
         for(let i=0;i<this.state.arr.length;i++)ans.push(-1);
         Q=this;
+        addresses.Q_bar=this
     }
     componentDidUpdate(){
         Q=this
+        addresses.Q_bar=this
     }
     resize(){
         this.setState((prev)=>{return {link:this.props.link,snippet:responsive.Q_bar.snippet(),pre:prev.pre,slider:responsive.Q_bar.Main_slider(),style:responsive.Q_bar.next_button(),question_bar:responsive.Q_bar.question_bar(),arr:prev.arr}})
@@ -227,4 +234,8 @@ class Options extends React.Component{
     }
 }
 
-//<Options q_id={this.state.pre-1} option={[this.state.arr[this.state.pre-1].option_01,this.state.arr[this.state.pre-1].option_02,this.state.arr[this.state.pre-1].option_03,this.state.arr[this.state.pre-1].option_04]}/>
+/*<div style={this.state.image}>
+</div>
+<div style={this.state.heading}>
+    {this.props.obj.h1}
+</div>*/

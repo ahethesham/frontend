@@ -6,6 +6,7 @@ import { Heading } from "./heading.js";
 import img from './ds.png'
 import { Mocktest_block } from "./Mocktest.js";
 import { Questions } from "./Questions.js";
+import { addresses } from "./index.js";
 export  let dsobj={
     image:img,
     h1:'data structures',
@@ -20,12 +21,18 @@ export class Dsa_header extends React.Component{
         this.resize=this.resize.bind(this);
         window.addEventListener('resize',this.resize);
     }
+    componentDidMount(){
+        addresses.Dsa_header=this
+    }
+    componentDidUpdate(){
+        addresses.Dsa_header=this
+    }
     resize(){
         this.setState({style:responsive.dsa.Main(),image:responsive.dsa.image(img),text:responsive.dsa.text()})
     }
     handleClick(){
        window.scrollTo(0,0)
-        ReactDOM.render(<Questions obj={dsobj}/>,document.getElementById('root'));
+        ReactDOM.render(<Questions logout={this.props.logout} obj={dsobj}/>,document.getElementById('root'));
     }
     render(){
         return(
@@ -56,7 +63,7 @@ export class Ds_mockheader extends React.Component{
     }
     render(){
         return <div style={this.state.style}>
-            <Mocktest_block img={img} str={'dsa'} topic={"ds"}/>
+            <Mocktest_block logout={this.props.logout}img={img} str={'dsa'} topic={"ds"}/>
         </div>
     }
 }

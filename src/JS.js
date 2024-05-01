@@ -8,8 +8,8 @@ import { Questions } from "./Questions.js";
 export  let jsobj={
     image:img,
     h1:'Javascript',
-    subtopics:[['Process',img,0,'/os/process'],['Threads',img,1,'/os/threads'],['IPC',img,2,'/os/ipc'],['Kernel',img,3,'/os/kernel'],
-    ['Concurrency',img,4,'/os/concurrency'],['Algorithms',img,5,'/os/algo']]
+    subtopics:[['Data types',img,0,'/js/data_types'],['Objects',img,1,'/js/object'],['Asynchronous',img,2,'/js/asynchronous'],['Functions',img,3,'/js/function'],
+    ['Closure',img,4,'/js/closure'],['NaN',img,5,'/js/nan']]
 }
 export class Js_header extends React.Component{
     constructor(){
@@ -23,7 +23,7 @@ export class Js_header extends React.Component{
     handleclick(){
         window.scrollTo(0,0)
        
-        ReactDOM.render(<Questions obj={jsobj}/>,document.getElementById('root'));   
+        ReactDOM.render(<Questions  logout={this.props.logout}obj={jsobj}/>,document.getElementById('root'));   
      }
     resize(){
         this.setState((prev)=>{return {arr:prev.arr,style:responsive.JS()}})
@@ -31,7 +31,7 @@ export class Js_header extends React.Component{
     render(){
         return(
             <div style={this.state.style} onClick={this.handleclick}> 
-                <S2 main={"JavaScript"} topics={this.state.arr} img={img}/>
+                <S2 logout={this.props.logout} main={"JavaScript"} topics={this.state.arr} img={img}/>
             </div>
         )
     }
@@ -48,7 +48,7 @@ export class Js_mockheader extends React.Component{
     }
     render(){
         return <div style={this.state.style}>
-            <Mocktest_block img={img} str={'js'} topic={"js"}/>
+            <Mocktest_block  logout={this.props.logout}img={img} str={'js'} topic={"js"}/>
         </div>
     }
 }

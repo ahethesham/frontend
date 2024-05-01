@@ -10,8 +10,8 @@ export class Table_page extends React.Component{
     }
     render(){
         return <div >
-            <Heading/>
-            <Mocktest_list topic={this.props.topic}/>
+            <Heading logout={this.props.logout}/>
+            <Mocktest_list logout={this.props.logout}topic={this.props.topic}/>
         </div>
     }
 }

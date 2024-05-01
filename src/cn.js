@@ -22,7 +22,7 @@ export class Cn_header extends React.Component{
     handleclick(){
         window.scrollTo(0,0)
        
-        ReactDOM.render(<Questions obj={cnobj}/>,document.getElementById('root'));   
+        ReactDOM.render(<Questions logout={this.props.logout} obj={cnobj}/>,document.getElementById('root'));   
      }
     resize(){
         this.setState({style:responsive.cn()})
@@ -30,7 +30,7 @@ export class Cn_header extends React.Component{
     render(){
         return(
             <div style={this.state.style} onClick={this.handleclick}> 
-                <S2 main={"Networking"} img={img}/>
+                <S2  main={"Networking"} img={img}/>
             </div>
         )
     }
@@ -47,7 +47,7 @@ export class Cn_mockheader extends React.Component{
     }
     render(){
         return <div style={this.state.style}>
-            <Mocktest_block img={img} str={'cn'} topic={"cn"}/>
+            <Mocktest_block logout={this.props.logout} img={img} str={'cn'} topic={"cn"}/>
         </div>
     }
 }

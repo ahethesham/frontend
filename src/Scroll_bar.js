@@ -22,7 +22,8 @@ import { Questions } from "./Questions.js";
 import {reactobj} from './react.js'
 import {cnobj} from './cn.js'
 import {htmlobj} from './html.js'
-let arr=[['C++',cppimg,0,cppobj],['Java',javaimg,1,javaobj],['React',reactimg,2,reactobj],['Data\nStructures',dsimg,3,dsobj],['Algorithms',algoimg,4,algoobj],['JavaScript',jsimg,5,jsobj],['Operating\nSystems',osimg,6,osobj]
+import { addresses } from "./index.js";
+let arr=[['C++',cppimg,0,cppobj],['Operating\nSystem',osimg,1,osobj],['React',reactimg,2,reactobj],['Data\nStructures',dsimg,3,dsobj],['Algorithms',algoimg,4,algoobj],['JavaScript',jsimg,5,jsobj],['Java',javaimg,6,javaobj]
 ,['DBMS',dbmsimg,7,dbmsobj],['Networking',cnimg,8,cnobj],['HTML',htmlimg,9,htmlobj]]
 
 let address=[null,null,null]
@@ -34,6 +35,12 @@ export class Scroll_header extends React.Component{
         window.addEventListener('resize',this.resize)
         this.handleleftclick=this.handleleftclick.bind(this)
         this.handlerightclick=this.handlerightclick.bind(this)
+    }
+    componentDidMount(){
+        addresses.Scroll_header=this
+    }
+    componentDidUpdate(){
+        addresses.Scroll_header=this
     }
     resize(){
         this.setState((prev)=>{return {buttonr:responsive.scroll_bar.buttonr(),buttonl:responsive.scroll_bar.buttonl(),index:prev.index,style:responsive.scroll_bar.Main()}})
@@ -73,9 +80,15 @@ class Scroll extends React.Component{
         this.handleclick=this.handleclick.bind(this)
         window.addEventListener('resize',this.resize)
     }
+    componentDidMount(){
+        addresses[`Scroll${this.props.ind}`]=this
+    }
+    componentDidUpdate(){
+        addresses[`Scroll${this.props.ind}`]=this
+    }
     handleclick(){
         window.scrollTo(0,0)
-        ReactDOM.render(<Questions obj={arr[this.props.ind][3]}/>,document.getElementById('root'));
+        ReactDOM.render(<Questions logout={this.props.logout}obj={arr[this.props.ind][3]}/>,document.getElementById('root'));
     }
     resize(){
         this.setState((prev)=>{return {style:responsive.scroll_bar.Element(this.props.flag),image:responsive.scroll_bar.image(this.props.flag,this.props.img),text:responsive.scroll_bar.text(this.props.flag)}})

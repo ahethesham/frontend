@@ -1,34 +1,145 @@
+let heading_color='rgb(188,206,187)',h_font="black"
+let side_color='aliceblue'
+export function mode(){
+    if(heading_color=='rgb(188,206,187)')
+    {
+        heading_color='black';
+        h_font="white"
+        document.body.style.backgroundColor='rgb(40,42,40)'
+        side_color='rgb(64,66,64)'
+    }
+    else
+    {
+    heading_color='rgb(188,206,187)'
+    h_font="black"
+    document.body.style.backgroundColor='white'
+    side_color='aliceblue'
+    }
+}
 export const responsive={
     heading:{
         main:function(){
         let width=window.innerWidth/100,height=window.innerHeight/100
         let main={
-            color:'wheat',
-            height:`${7*height}px`,
+            color:h_font,
+            height:`${5.5*height}px`,
             width:`${100*width}px`,
             fontSize:`${Math.min(1*height,1*width)}px`,
             zIndex:'1',
-            backgroundColor:'black',
+            backgroundColor:heading_color,
             position:'fixed',
-            bottom:`${93*height}px`,
-            fontFamily:'Oswald'  
+            bottom:`${94.5*height}px`,
+          //  fontFamily:'Oswald'  ,
+            boxShadow:'0px 3px 5px',
         }
         return main;
+    },
+    account:function(img)
+    {
+        let width=window.innerWidth/100,height=window.innerHeight/100
+        let style={
+            position:'absolute',
+            height:`${5*height}px`,
+            width:`${3*width}px`,
+            left:`${95*width}px`,
+           margin:`${1*height}px`,
+            backgroundImage:`url(${img})`,
+            backgroundSize:`${2*width}px ${4*height}px`,
+            backgroundColor:'transparent',
+            border:'black',
+            backgroundRepeat:'no-repeat no-repeat',
+        }
+        return style;
+
+    },
+    account_info:function(){
+        let width=window.innerWidth/100,height=window.innerHeight/100
+        let style={
+            position:'fixed',
+            height:`${30*height}px`,
+            width:`${13*width}px`,
+            border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
+            zIndex:'1',
+            right:`${4*width}px`,
+            top:`${5*height}px`
+            
+        }
+        return style
+    },
+    account_sub:function(){
+        let width=window.innerWidth/100,height=window.innerHeight/100
+        let style={
+            position:'relative',
+            height:`${6*height}px`,
+            width:`${13*width}px`,
+            border:'grey',
+            display:'block',
+            fontSize:`${Math.min(1.8*height,1.8*width)}px`,
+            zIndex:'1',
+            border:`${Math.min(0.05*height,0.05*width)}px solid grey`
+        }
+        return style;
+
     },
     exit:function(){
         let width=window.innerWidth/100,height=window.innerHeight/100
         let main={
-            color:'wheat',
+            color:h_font,
             height:`${5*height}px`,
             width:`${7*width}px`,
             fontSize:`${Math.min(3*height,3*width)}px`,
             zIndex:'1',
-            backgroundColor:'black',
+           backgroundColor:'transparent',
             position:'relative',
             fontFamily:'Oswald'  ,
-            border:'black'
+            border:'black',
+            fontWeight:'bold'
+
         }
         return main;
+    },
+    header_box:function(){
+        let width=window.innerWidth/100,height=window.innerHeight/100
+        let style={
+            position:'absolute',
+            display:"flex",
+            height:`${3*height}px`,
+            width:`${50*width}px`,
+            left:`${65*width}px`,
+            bottom:`${1*height}px`
+          }
+          return style;
+    },
+    header_button:function(){
+        let width=window.innerWidth/100,height=window.innerHeight/100
+        let style={
+            position:'relative',
+            display:"flex",
+            height:`${3*height}px`,
+            width:`${5*width}px`,
+            color:h_font,
+            backgroundColor:"transparent",
+            margin:`${0.2*width}px`,
+           border:'transparent',
+            fontSize:`${Math.min(1.5*height,1.5*width)}px`
+          }
+          return style;
+    },
+    light_header_button:function(img){
+        let width=window.innerWidth/100,height=window.innerHeight/100
+        let style={
+            position:'relative',
+            height:`${3*height}px`,
+            width:`${5*width}px`,
+            backgroundColor:"transparent",
+            backgroundImage:`url(${img})`,
+            backgroundSize:`${3*width}px ${3*height}px`,
+            backgroundRepeat:'no-repeat no-repeat',
+            margin:`${0.2*width}px`,
+             border:'transparent',
+            fontSize:`${Math.min(1.5*height,1.5*width)}px`
+          }
+          return style;
     }
     },
     dsa:{
@@ -36,18 +147,16 @@ export const responsive={
             let width=window.innerWidth/100,height=window.innerHeight/100
 
         let style={
-            //top:`${5*height}px`,
             position:'relative',
             height:`${30*height}px`,
             width:`${70*width}px`,
             left:`${15*width}px`,
            bottom:`${10*height}px`,
-            border:`${Math.min(0.5*height,0.5*width)}px`,
+            border:`${Math.min(0.5*height,0.5*width)}px solid grey`,
             boxShadow:`0px 2px 10px`,
-            color:'grey',
             fontSize:`${Math.min(5*height,5*width)}px`,
             textAlign:'left',
-            background:'transparent'
+            backgroundColor:'transparent'
         }
         return style
        },
@@ -57,13 +166,15 @@ export const responsive={
         let style={
             background:'transparent',
             fontSize:`${Math.min(2*height,2*width)}px`,
-            color:'grey',
+            color:h_font,
             bottom:`${30*height}px`,
             height:`${25*height}px`,
             border:'0px solid black',
             left:`${12*width}px`,
             position:'relative',
             width:`${50*width}px`,
+            fontFamily:"Courier New",
+            fontWeight:'light'
         }
         return style
        },
@@ -81,19 +192,18 @@ export const responsive={
         return style;
        }
        },
-       sidebar:{
+sidebar:{
         main:function(){
             let width=window.innerWidth/100,height=window.innerHeight/100
 
             let style={
-                top:`${7.3*height}px`,
+                top:`${6*height}px`,
                 position:'fixed',
                 zIndex:'1',
                 height:`${100*height}px`,
                 width:`${10*width}px`,
                 border:`${Math.min(0.2*height,0.2*width)}px solid grey`,
-                backgroundColor:'rgb(31, 28, 28)',
-                color:'white',
+                backgroundColor:document.body.style.backgroundColor,
                 boxShadow:'0px 1px 7px'
                 
             }
@@ -107,9 +217,9 @@ export const responsive={
                 width:`${10*width}px`,
                 border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
                 fontSize:`${Math.min(2*height,2*width)}px`,
-                color:'grey',
                 textAlign:'center',
-                backgroundColor:'rgb(31, 28, 28)'
+                backgroundColor:side_color,
+                boxShadow:'0px 5px 10px'
             }
             return style;
         },
@@ -119,9 +229,10 @@ export const responsive={
                 position:'relative',
                 bottom:`${0.5*height}px`,
                 left:`${1*width}px`,
-                fontSize:`${Math.min(2*height,2*width)}px`,
-                color:'grey',
-                fontFamily:'Oswald'
+                fontSize:`${Math.min(1.6*height,1.6*width)}px`,
+                color:h_font,
+                fontFamily:'Oswald',
+                fontWeight:"bold"
 
             }
             return style;
@@ -165,7 +276,7 @@ export const responsive={
         let style={
             left:`${55*width}px`,
             position:'relative',
-            bottom:`${82*height}px`
+            bottom:`${80*height}px`
         }
         return style;
     },
@@ -192,7 +303,7 @@ export const responsive={
         let style={
             left:`${56*width}px`,
             position:'relative',
-            bottom:`${57*height}px`
+            bottom:`${55*height}px`
         }
         return style;
     },
@@ -201,16 +312,17 @@ export const responsive={
         Main:function(){
         let width=window.innerWidth/100,height=window.innerHeight/100
         let style={
-            top:`${15*height}px`,
             position:'relative',
             height:`${30*height}px`,
-            width:`${30*width}px`,
-            border:`${Math.min(0.5*height,0.5*width)}px`,
+            width:`${25*width}px`,
+            border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
             boxShadow:`0px 2px 10px`,
-            color:'grey',
+            color:h_font,
             fontSize:`${Math.min(2*height,2*width)}px`,
             textAlign:'center',
-            fontFamily:'Oswald'
+           // fontFamily:'Oswald',
+           fontWeight:"100",
+           // backgroundColor:"white"
 
         }
         return style;
@@ -219,15 +331,15 @@ export const responsive={
             let width=window.innerWidth/100,height=window.innerHeight/100
             let style={
                 position:'relative',
-                height:`${25*height}px`,
-                width:`${20*width}px`,
+                height:`${23*height}px`,
+                width:`${16*width}px`,
                 backgroundImage:`url(${img})`,
                 backgroundRepeat:`no-repeat,no-repeat`,
-                backgroundSize:`${Math.min(20*width,25*height)}px ${Math.min(20*width,25*height)}px`,
+                backgroundSize:`${Math.min(16*width,23*height)}px ${Math.min(16*width,23*height)}px`,
                 backgroundPositionY:'center',
                 backgroundPositionX:'center',
                 left:`${5*width}px`,
-                bottom:`${Math.min(2*height,1.5*width)}px`
+                bottom:`${Math.min(3*height,2.5*width)}px`
             }
             return style;
         }
@@ -238,7 +350,7 @@ export const responsive={
           //  top:`${15*height}px`,
             left:`${55*width}px`,
             position:'relative',
-            bottom:`${33*height}px`
+            bottom:`${30*height}px`
         }
         return style;
     },
@@ -247,55 +359,51 @@ export const responsive={
             let width=window.innerWidth/100,height=window.innerHeight/100
             let style={
                top:`${10*height}px`,
-                position:'relative',
+                position:'fixed',
                 height:`${10*height}px`,
                 width:`${5*width}px`,
                 backgroundImage:`url(${img})`,
                 backgroundRepeat:`no-repeat,no-repeat`,
                 backgroundSize:`${5*width}px ${10*height}px`,
                 backgroundPositionY:'center',
-                backgroundPositionX:'center'
+                backgroundPositionX:'center',
+
             }
             return style;
         },
         heading:function(){
             let width=window.innerWidth/100,height=window.innerHeight/100
-
             let style={
-                top:`${2*height}px`,
-                position:'relative',
-                background:'transparent',
+                top:`${12*height}px`,
+                position:'fixed',
+                background:'',
                 fontSize:`${Math.min(5*height,3*width)}px`,
-                color:'grey',
-                height:`${10*height}px`,
+                color:h_font,
+                height:`${7*height}px`,
                 border:'0px solid black',
                 left:`${6*width}px`,
-                bottom:`${5*height}px`,
-                
-                //width:`${50*width}px`,
+                zIndex:'2'
             }
             return style
         }
     },
     sidebar_02:{
         main:function(){
-            let width=window.innerWidth/100,height=window.innerHeight/100
-            
+            let width=window.innerWidth/100,height=window.innerHeight/100;
+
             let style={
-              //overflowY:'hidden',
               overflowX:'hidden',
-              top:`${1*height}px`,
-                position:'relative',
-                height:`${80*height}px`,
+              top:`${6*height}px`,
+                position:'fixed',
+                height:`${95*height}px`,
                 width:`${10*width}px`,
                 border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
-                color:'white',
-                boxShadow:'0px 1px 5px'
+              //  color:'white',
+                boxShadow:'0px 1px 5px',
+                zIndex:'1',
 
             }
             return style
-            
-           
         },
         Element:function(flag){
             let width=window.innerWidth/100,height=window.innerHeight/100
@@ -306,9 +414,9 @@ export const responsive={
                 width:`${10*width}px`,
                 border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
                 fontSize:`${Math.min(2*height,2*width)}px`,
-                color:'grey',
+                color:h_font,
                 textAlign:'center',
-                backgroundColor:'transparent'
+                backgroundColor:'transparent',
             }
             return style;
             }
@@ -318,7 +426,7 @@ export const responsive={
                 width:`${10*width}px`,
                 border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
                 fontSize:`${Math.min(2*height,2*width)}px`,
-                color:'black',
+                color:h_font,
                 textAlign:'center',
                 backgroundColor:'grey'
             }
@@ -333,7 +441,10 @@ export const responsive={
                 left:`${1*width}px`,
                 fontSize:`${Math.min(1.5*height,1.5*width)}px`,
                 display:'inline',
-                //color:'grey',
+                fontFamily:"Oswald",
+                fontWeight:"bold",
+                color:h_font
+
             }
             return style;
         },
@@ -358,14 +469,14 @@ export const responsive={
         question_bar:function(){
             let width=window.innerWidth/100,height=window.innerHeight/100
             let style={
+                top:`${25*height}px`,
                 position:'relative',
                 width:`${75*width}px`,
-                height:`${75*height}px`,
+                height:`${85*height}px`,
                 border:`${Math.min(0.2*height,0.1*width)}px solid grey`,
                 background:'transparent',
                 left:`${15*width}px`,
-               bottom:`${80*height}px`,
-                color:'wheat',
+                color:h_font,
                 fontSize:`${Math.min(2*height,2*width)}px`,
                 boxShadow:'0px 1px 8px'
             }
@@ -389,7 +500,7 @@ export const responsive={
                 height:h,
                 border:`${Math.min(0.2*height,0.1*width)}px solid grey`,
                 backgroundColor:'darkgreen',
-                color:'white',
+                color:h_font,
                 fontSize:`${Math.min(2*height,2*width)}px`,
                 borderRadius:`${4*width}px`,
                 display:'inline',
@@ -408,7 +519,7 @@ export const responsive={
                 fontSize:`${Math.min(2*height,2*width)}px`,
                 borderRadius:`${4*width}px`,
                 display:'inline',
-                color:'black'
+                color:h_font
             }
             return style;
         },
@@ -429,7 +540,7 @@ export const responsive={
                position:'relative',
                width:`${4*width}px`,
                height:`${4*height}px`,
-               color:'black',
+               color:h_font,
               display:'inline'
 
             }
@@ -438,15 +549,18 @@ export const responsive={
         snippet(){
             let width=window.innerWidth/100,height=window.innerHeight/100
             let style={
-                height:`${70*height}px`,
+                height:`${75*height}px`,
                 position:'relative',
                 width:`${70*width}px`,
                 left:`${2*width}px`,
                 bottom:`${5*height}px`,
-                color:'whitesmoke',
+             color:h_font,
                 background:'transparent',
-                fontSize:`${Math.min(1.9*height,0.9*width)}px`,
+                fontSize:`${Math.min(2*height,1*width)}px`,
                 border:`${Math.min(0*height,0.1*width)}px solid transparent`,
+                margin:`${Math.min(2*height,2*width)}px`,
+                fontFamily:'Helvetica',
+                fontWeight:"100"
             }
             return style;
         },
@@ -459,7 +573,7 @@ export const responsive={
                 width:`${40*width}px`,
                 left:`${30*width}px`,
                 bottom:`${50*height}px`,
-                color:'whitesmoke',
+               color:h_font,
                 background:'transparent',
                 fontSize:`${Math.min(2*height,1*width)}px`,
                // border:`${Math.min(0.01*height,0.01*width)}px solid darkgrey`,
@@ -472,7 +586,15 @@ export const responsive={
             let style={
                 width:`${Math.min(3*height,2*width)}px`,
                 borderRadius:`${Math.min(3*height,2*width)}px`,
-                backgroundColor:'yellow'
+               // backgroundColor:'yellow'
+            }
+            return style;
+        },
+        footer:function(){
+            let width=window.innerWidth/100,height=window.innerHeight/100
+            let style={
+                position:"relative",
+              top:`${80*height}px`
             }
             return style;
         }
@@ -485,8 +607,8 @@ export const responsive={
                 position:'relative',
                 width:"100%",
                 height:`${35*height}px`,
-                backgroundColor:'rgb(26, 25, 25)',
-                color:'white',
+                backgroundColor:'rgb(113, 119, 119)',
+                color:h_font,
                 border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
                 zIndex:'2',
                display:'flex',
@@ -501,7 +623,7 @@ export const responsive={
                 width:`${10*width}px`,
                 height:`${15*height}px`,
                 top:`${2*height}px`,
-                color:'white',
+                color:h_font,
                 left:`${4*width}px`,
                 fontSize:`${Math.min(1.2*height,1.2*width)}px`,
                 display:'block'
@@ -512,89 +634,15 @@ export const responsive={
                 let width=window.innerWidth/100,height=window.innerHeight/100
                 let style={
                     position:'relative',
-                   // width:`${10*width}px`,
-                   // height:`${15*height}px`,
-                    //top:`${4*height}px`,
-                    color:'white',
-                  //  right:`${2*width}px`,
+                     background:'transparent',
+                     border:'transparent',
+                    color:h_font,
                     fontSize:`${Math.min(1.2*height,1.2*width)}px`,
                     display:'block'
                 }
                 return style;
             }
             
-        },
-        explore:{
-            Main:function(){
-                let width=window.innerWidth/100,height=window.innerHeight/100
-                let style={
-                    position:'relative',
-                    height:`${40*height}px`,
-                    width:`${100*width}px`,
-                    overflowX:'scroll',
-                    color:'grey',
-                    fontSize:`${Math.min(3*height,3*width)}px`,
-                    backgroundColor:'inherit',
-                    border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
-                    bottom:`${30*height}px`,
-                    display:'flex',
-                    scrollbarColor:'black black',
-                    scrollbarWidth: 'thin'
-
-                }
-                return style
-            },
-            Element:function(){
-                let width=window.innerWidth/100,height=window.innerHeight/100
-                let style={
-                    position:'relative',
-                    height:`${30*height}px`,
-                    width:`${30*width}px`,
-                    color:'grey',
-                    right:`${5*width}px`,
-                    top:`${5*height}px`,
-                    fontSize:`${Math.min(3*height,3*width)}px`,
-                    backgroundColor:'black',
-                    border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
-                    marginRight:`${3*width}px`,
-                    boxShadow:'0px 2px 10px'
-                }
-                return style
-            },
-            image:function(img){
-                let width=window.innerWidth/100,height=window.innerHeight/100
-                let style={
-                    position:'relative',
-                    height:`${20*height}px`,
-                    width:`${15*width}px`,
-                    backgroundImage:`url(${img})`,
-                    backgroundRepeat:`no-repeat,no-repeat`,
-                    backgroundSize:`${7*width}px ${20*height}px`,
-                    top:`${3*height}px`,
-                   // right:`${8*width}px`,
-                    backgroundPositionY:'center',
-                    backgroundPositionX:'center'
-                }
-                return style
-            },
-            text:function(){
-                let width=window.innerWidth/100,height=window.innerHeight/100
-                let style={
-                    height:`${4*height}px`,
-                    position:'relative',
-                    backgroundColor:'black',
-                    overflow:'hidden',
-                    width:`${10*width}px`,
-                    top:`${3*height}px`,
-                    border:`${Math.min(1*height,1*width)}px solid black`,
-
-                   left:`${2*width}px`,
-                    fontSize:`${Math.min(1.5*height,1.5*width)}px`,
-                    color:'white',
-                    textAlign:'center'
-                }
-                return style
-            }
         },
         scroll_bar:{
             Main:function(){
@@ -604,10 +652,10 @@ export const responsive={
                     height:`${35*height}px`,
                     width:`${45*width}px`,
                     overflowX:'auto',
-                    color:'grey',
+                    color:h_font,
                     fontSize:`${Math.min(3*height,3*width)}px`,
-                    backgroundColor:'inherit',
-                  //border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
+                    backgroundColor:'',
+                 // border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
                     top:`${15*height}px`,
                     left:`${25*width}px`,
                     display:'flex'
@@ -621,11 +669,10 @@ export const responsive={
                 width:`${Math.min(4*height,4*width)}px`,
                 height:`${Math.min(4*height,4*width)}px`,
                 border:`${Math.min(0.2*height,0.1*width)}px solid grey`,
-                color:'white',
                 fontSize:`${Math.min(2*height,2*width)}px`,
                 borderRadius:`${4*width}px`,
                 display:'inline',
-                color:'white',
+                color:h_font,
                 top:`${14*height}px`,
                 background:'transparent',
                // left:`${2*width}px`
@@ -639,11 +686,10 @@ export const responsive={
                 width:`${Math.min(4*height,4*width)}px`,
                 height:`${Math.min(4*height,4*width)}px`,
                 border:`${Math.min(0.2*height,0.1*width)}px solid grey`,
-                color:'white',
                 fontSize:`${Math.min(2*height,2*width)}px`,
                 borderRadius:`${4*width}px`,
                 display:'inline',
-                color:'white',
+               color:h_font,
                 top:`${14*height}px`,
                 background:'transparent',
                 left:`${3*width}px`
@@ -657,10 +703,10 @@ export const responsive={
                         position:'relative',
                         height:`${Math.min(30*height,29*width)}px`,
                         width:`${Math.min(30*height,29*width)}px`,
-                        color:'grey',
+                       color:h_font,
                         top:`${3*height}px`,
                         fontSize:`${Math.min(3*height,3*width)}px`,
-                       backgroundColor:'black',
+                    //   backgroundColor:'black',
                       border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
                       borderRadius:`${Math.min(30*height,29*width)}px`,
                      marginRight:`${1*width}px`,
@@ -678,10 +724,10 @@ export const responsive={
                         position:'relative',
                         height:`${Math.min(10*height,10*width)}px`,
                         width:`${Math.min(10*height,10*width)}px`,
-                        color:'grey',
+                       color:h_font,
                         top:`${11*height}px`,
                         fontSize:`${Math.min(3*height,3*width)}px`,
-                        backgroundColor:'black',
+                      //  backgroundColor:'black',
                         borderRadius:`${Math.min(10*height,10*width)}px`,
                         border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
                         marginRight:`${1*width}px`,
@@ -707,7 +753,8 @@ export const responsive={
                     top:`${4*height}px`,
                    left:`${3*width}px`,
                     backgroundPositionY:'center',
-                    backgroundPositionX:'center'
+                    backgroundPositionX:'center',
+
                 }
                 return style
                 }
@@ -723,7 +770,8 @@ export const responsive={
                         left:`${0.5*width}px`,
                        // right:`${8*width}px`,
                         backgroundPositionY:'center',
-                        backgroundPositionX:'center'
+                        backgroundPositionX:'center',
+
                     }
                     return style
                 }
@@ -740,10 +788,11 @@ export const responsive={
                     width:`${10*width}px`,
                     top:`${4*height}px`,
                     border:`${Math.min(1*height,1*width)}px transparent`,
-                   left:`${2*width}px`,
-                    fontSize:`${Math.min(1.5*height,1.5*width)}px`,
-                    color:'white',
-                    textAlign:'center'
+                   left:`${3*width}px`,
+                    fontSize:`${Math.min(2*height,2*width)}px`,
+                    color:h_font,
+                    textAlign:'center',
+                    fontWeight:'100'
                 }
                 return style
 
@@ -759,82 +808,15 @@ export const responsive={
                         right:`${2.5*width}px`,
                         border:`${Math.min(1*height,1*width)}px transparent`,
                         fontSize:`${Math.min(1*height,1*width)}px`,
-                        color:'white',
-                        textAlign:'center'
+                     color:h_font,
+                        textAlign:'center',
+                        fontWeight:'100'
+
                     }
                     return style
                 }
             }
         },
-        explore2:{
-            Main:function(){
-                let width=window.innerWidth/100,height=window.innerHeight/100
-                let style={
-                                position:'relative',
-                          position:'relative',
-                            height:`${20*height}px`,
-                             width:`${60*width}px`,
-                        overflowX:'auto',
-                        color:'grey',
-                        fontSize:`${Math.min(3*height,3*width)}px`,
-                        backgroundColor:'inherit',
-                        border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
-                      left:`${20*width}px`,
-                      top:`${15*height}px`,
-                        display:'flex'
-                }
-              return style
-        },
- Element:function(){
-        let width=window.innerWidth/100,height=window.innerHeight/100
-        let style={
-            position:'relative',
-            height:`${10*height}px`,
-            width:`${10*width}px`,
-            color:'grey',
-            top:`${5*height}px`,
-            fontSize:`${Math.min(3*height,3*width)}px`,
-            backgroundColor:'black',
-            border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
-            marginRight:`${3*width}px`
-        }
-        return style
-    },
-    image:function(img){
-        let width=window.innerWidth/100,height=window.innerHeight/100
-        let style={
-            position:'relative',
-            height:`${8*height}px`,
-            width:`${15*width}px`,
-            backgroundImage:`url(${img})`,
-            backgroundRepeat:`no-repeat,no-repeat`,
-            backgroundSize:`${7*width}px ${8*height}px`,
-            top:`${1*height}px`,
-            right:`${3*width}px`,
-            backgroundPositionY:'center',
-            backgroundPositionX:'center'
-        }
-        return style
-    },
-    text:function(){
-        let width=window.innerWidth/100,height=window.innerHeight/100
-        let style={
-            height:`${4*height}px`,
-            position:'relative',
-            backgroundColor:'transparent',
-            overflow:'hidden',
-            width:`${10*width}px`,
-            top:`${2*height}px`,
-            border:`${Math.min(1*height,1*width)}px transparent`,
-
-           right:`${0.5*width}px`,
-            fontSize:`${Math.min(1.5*height,1.5*width)}px`,
-            color:'white',
-            textAlign:'center'
-        }
-        return style
-    }
-        }
 
 }
 
@@ -850,10 +832,11 @@ export let responsive_mock={
                 width:`${20*width}px`,
                 border:`${0.1*height}px solid grey`,
                 left:`${77*width}px`,
-                bottom:`${15*height}px`,
-                color:'grey',
-                boxShadow:`0px 2px 10px`,
-                overflow:'hidden'
+                bottom:`${17*height}px`,
+                color:h_font,
+                boxShadow:`0px 1px 2px`,
+                overflow:'hidden',
+                backgroundColor:side_color
             }
             return style
         },
@@ -872,12 +855,13 @@ export let responsive_mock={
             let style={
                 position:'relative',
                 fontSize:`${Math.min(2*height,2*width)}px`,
-                color:'grey',
+                color:h_font,
                 height:`${13*height}px`,
                 width:`${20*width}px`,
                 border:'transparent',
                 background:'transparent',
-                backgroundColor:'transparent'
+                backgroundColor:'transparent',
+                fontWeight:"120"
             }
             return style;
         },
@@ -888,7 +872,7 @@ export let responsive_mock={
                 width:`${20*width}px`,
                 textAlign:'center',
                 position:'relative',
-                color:'grey',
+                color:h_font,
                 fontSize:`${Math.min(2*height,2*width)}px`,
                 backgroundColor:'transparent',
                 border:'transparent',
@@ -905,16 +889,16 @@ export let responsive_mock={
                 width:`${15*width}px`,
                 border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
                 overflow:'hidden',
+                boxShadow:`0px 1px 4px`,
+                color:h_font,
+               // backgroundColor:"aliceblue",
 
-                boxShadow:`0px 2px 10px`,
-                color:'grey',
                 }
                 return style
         },
         footer:function(){
             let width=window.innerWidth/100,height=window.innerHeight/100
             let style={
-              
                position:'relative',
                 top:`${30*height}px`,
             }
@@ -924,8 +908,7 @@ export let responsive_mock={
             let width=window.innerWidth/100,height=window.innerHeight/100
             let style={
                position:'relative',
-              // top:`${10*height}px`,
-               height:`${100*height}px`
+              height:`${100*height}px`,
             }
             return style
         },
@@ -948,14 +931,33 @@ export let responsive_mock={
             let width=window.innerWidth/100,height=window.innerHeight/100
             let style={
                 fontSize:`${Math.min(2*height,2*width)}px`,
-                color:"darkgrey",
+                color:h_font,
                 position:'relative',
                 background:'transparent',
                 border:'transparent',
                 height:`${15*height}px`,
-                width:`100%`
-                        }
+                width:`100%`,
+                fontWeight:'150'
+         }
             return style;
+        },
+        apt:function(){
+            let width=window.innerWidth/100,height=window.innerHeight/100
+            let style={
+                position:'relative',
+                bottom:`${65*height}px`,
+                left:`${10*width}px`,
+                }
+                return style
+        },
+        reasoning:function(){
+            let width=window.innerWidth/100,height=window.innerHeight/100
+            let style={
+                position:'relative',
+                bottom:`${100*height}px`,
+                left:`${28*width}px`,
+                }
+                return style
         },
         cpp:function(){
             let width=window.innerWidth/100,height=window.innerHeight/100
@@ -1000,8 +1002,8 @@ export let responsive_mock={
             let width=window.innerWidth/100,height=window.innerHeight/100
             let style={
                 position:'relative',
-               bottom:`${70*height}px`,
-                left:`${63*width}px`,
+               bottom:`${135*height}px`,
+                left:`${45*width}px`,
              
                 }
                 return style
@@ -1010,8 +1012,8 @@ export let responsive_mock={
             let width=window.innerWidth/100,height=window.innerHeight/100
             let style={
                 position:'relative',
-                bottom:`${105*height}px`,
-                left:`${45*width}px`,
+                bottom:`${170*height}px`,
+                left:`${63*width}px`,
              
                 }
                 return style
@@ -1068,7 +1070,7 @@ export let responsive_mock={
                 height:`${10*height}px`,
                 width:`${70*width}px`,
                 fontSize:`${Math.min(2*height,2*width)}px`,
-                color:"wheat",
+                color:h_font,
                 border:`${Math.min(0.1*height,0.1*width)}px solid grey`, 
                 fontSize:`${Math.min(2*height,2*width)}px`,
              //   background:'transparent'
@@ -1083,7 +1085,7 @@ export let responsive_mock={
                 height:`${5*height}px`,
                 border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
                  fontSize:`${Math.min(1.5*height,1.5*width)}px`,
-                color:"grey",
+                color:h_font,
                 textAlign:'center',
                 background:'transparent'
             }
@@ -1095,7 +1097,7 @@ export let responsive_mock={
                 position:'relative',
                 width:`${5*width}px`,
                 border:`${Math.min(0.1*height,0.1*width)}px solid grey`, fontSize:`${Math.min(2*height,2*width)}px`,
-                color:"grey",
+                color:h_font,
                 textAlign:'center'
             }
             return style;
@@ -1107,7 +1109,8 @@ export let responsive_mock={
                 width:`${30*width}px`,
                 border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
                 fontSize:`${Math.min(2*height,2*width)}px`,
-                color:"grey",                textAlign:'center'
+                color:h_font,  
+              textAlign:'center'
 
             }
             return style;
@@ -1118,7 +1121,8 @@ export let responsive_mock={
                 position:'relative',
                 width:`${10*width}px`,
                 border:`${Math.min(0.1*height,0.1*width)}px solid grey`, fontSize:`${Math.min(2*height,2*width)}px`,
-                color:"grey",                textAlign:'center'
+                color:h_font,    
+               textAlign:'center'
 
 
             }
@@ -1130,7 +1134,7 @@ export let responsive_mock={
                 position:'relative',
                 width:`${15*width}px`,
                 border:`${Math.min(0.1*height,0.1*width)}px solid grey`, fontSize:`${Math.min(2*height,2*width)}px`,
-                color:"grey",             
+                color:h_font,             
                    textAlign:'center'
             }
             return style;
@@ -1141,7 +1145,7 @@ export let responsive_mock={
                 position:'relative',
                 width:`${10*width}px`,
                 border:`${Math.min(0.1*height,0.1*width)}px solid grey`, fontSize:`${Math.min(2*height,2*width)}px`,
-                color:"grey",             
+                color:h_font,             
                    textAlign:'center'
             }
             return style;
@@ -1155,7 +1159,8 @@ export let responsive_mock={
                 height:`${5*height}px`,
                 width:`${70*width}px`,
                 fontSize:`${Math.min(2*height,2*width)}px`,
-                color:"grey",                textAlign:'center'
+                color:h_font,   
+             textAlign:'center'
 
             }
             return style
@@ -1167,7 +1172,7 @@ export let responsive_mock={
 
             let style={
             position:'relative',
-            color:'white',
+            color:h_font,
             fontSize:`${Math.min(3.5*height,3.5*width)}px`,
             height:`${6*height}px`,
             width:`${8*width}px`,
@@ -1181,14 +1186,14 @@ export let responsive_mock={
             let width=window.innerWidth/100,height=window.innerHeight/100
             let style={
                 position:'relative',
-                color:'white',
+                color:h_font,
                 fontSize:`${Math.min(3*height,3*width)}px`,
                 height:`${6*height}px`,
                 width:`${8*width}px`,
                 textAlign:'center',
               // bottom:`${3*height}px`,
                 left:`${40*width}px`,
-                top:`${30*height}px`,
+                top:`${25*height}px`,
                 backgroundColor:'blue',
                 border:`black`,
                 //boxShadow:'0px 1px 4px'
@@ -1199,7 +1204,7 @@ export let responsive_mock={
             let width=window.innerWidth/100,height=window.innerHeight/100
             let style={
                 position:"relative",
-                color:'wheat',
+                color:'black',
                 top:`${10*height}px`,
                 left:`${30*width}px`,
                 fontSize:`${Math.min(2*height,2*width)}px`
@@ -1212,42 +1217,43 @@ export let responsive_mock={
             let style={
                 position:'relative',
                 color:'white',
-                fontSize:`${Math.min(3*height,3*width)}px`,
-                height:`${6*height}px`,
-                width:`${8*width}px`,
+                fontSize:`${Math.min(2*height,2*width)}px`,
+                height:`${4*height}px`,
+                width:`${5*width}px`,
                 textAlign:'center',
-               bottom:`${3*height}px`,
-                left:`${85*width}px`,
-                backgroundColor:'black',
+               bottom:`${5*height}px`,
+                left:`${2*width}px`,
+                backgroundColor:'green',
                 border:`black`,
-                boxShadow:'0px 1px 4px'
+                boxShadow:'0px 0.5px 1px'
                 }
                 return style;
         },
+    
         question:function(){
             let width=window.innerWidth/100,height=window.innerHeight/100
 
             let style={
                 position:'relative',
-                color:'grey',
+                color:h_font,
                 border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
                 fontSize:`${Math.min(2*height,2*width)}px`,
                 height:`${80*height}px`,
                 width:`${55*width}px`,
                 textAlign:'center',
                // top:`${6*height}px`,
-                backgroundColor:'black'
+             //   backgroundColor:'black'
                 }
                 return style;
         },
         question_text:function(){
             let width=window.innerWidth/100,height=window.innerHeight/100
             let style={
-             backgroundColor:'black',
+             backgroundColor:side_color,
              fontSize:`${Math.min(2*height,2*width)}px`,
              height:`${73*height}px`,
              width:'100%',
-             color:'grey',
+            color:h_font,
              border:'black',
              position:'relative',
              top:`${6*height}px`
@@ -1259,7 +1265,7 @@ export let responsive_mock={
 
             let style={
                 position:'relative',
-                color:'white',
+               color:h_font,
                // border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
                 fontSize:`${Math.min(1.5*height,1.5*width)}px`,
                 height:`${4*height}px`,
@@ -1270,12 +1276,13 @@ export let responsive_mock={
                 }
                 return style;
         },
-        tab:function(){
+        tab:function(ind,curr){
             let width=window.innerWidth/100,height=window.innerHeight/100
-
+            if(ind<=curr)
+            {
             let style={
                 position:'relative',
-                color:'white',
+                color:h_font,
                 border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
                 fontSize:`${Math.min(2*height,2*width)}px`,
                  height:`${Math.min(4*height,3*width)}px`,
@@ -1285,6 +1292,21 @@ export let responsive_mock={
                 float:'left'
                 }
                 return style;
+            }
+            else{
+                let style={
+                    position:'relative',
+                    backgroundColor:'green',
+                    border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
+                    fontSize:`${Math.min(2*height,2*width)}px`,
+                     height:`${Math.min(4*height,3*width)}px`,
+                     width:`${Math.min(4*height,3*width)}px`,
+                    borderRadius:`${Math.min(3*height,3*width)}px`,
+                    textAlign:'center',
+                    float:'left'
+                    }
+                    return style;
+            }
         },
         options:{
             main:function() {
@@ -1292,12 +1314,12 @@ export let responsive_mock={
 
                 let style={
                     position:'relative',
-                    color:'white',
+                    color:h_font,
                     border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
                     fontSize:`${Math.min(2*height,2*width)}px`,
                      height:`${80*height}px`,
                      width:`${40*width}px`,
-                     backgroundColor:'black'
+                   //  backgroundColor:'black'
 
                     }
                     return style;
@@ -1309,7 +1331,7 @@ export let responsive_mock={
                     height:`${5*height}px`,
                     position:'relative',
                    
-                    color:'grey',
+                    color:h_font,
                     background:'transparent',
                     fontSize:`${Math.min(2*height,1*width)}px`,
                     padding:`${3*height}px`
@@ -1339,9 +1361,142 @@ export let responsive_mock={
                 width:`100%`,
                 backgroundColor:'transparent',
                 fontSize:`${Math.min(2*height,2*width)}px`,
-                color:'grey',
+                color:h_font,
                 border:'transparent',
                 textAlign:'center'
+            }
+            return style;
+        }
+    },
+}
+export let responsive_auth={
+    Main:{
+        cover:function(){
+            let width=window.innerWidth/100,height=window.innerHeight/100
+            let style={
+                height:`${100*height}px`,
+                width:`${100*width}px`,
+                position:'fixed',
+                zIndex:'2',
+            }
+            return style;
+        },
+        header:function(flag){
+            let width=window.innerWidth/100,height=window.innerHeight/100
+            let style={
+                height:`${65*height}px`,
+                width:`${30*width}px`,            
+                background:'white',
+                position:'relative',
+                top:`${20*height}px`,
+                left:`${35*width}px`,
+                border:`${Math.min(0.5*height,0.5*width)}px solid black`
+
+            }
+            return style;
+        },
+        usernamelabel:function(flag){
+            let t
+            if(!flag)t=13;
+            else
+            t=6;
+            let width=window.innerWidth/100,height=window.innerHeight/100
+            let style={
+                height:`${5*height}px`,
+                width:`${20*width}px`,            
+                background:'transparent',
+                position:'relative',
+               // border:`${0.1*height}px solid black`,
+               margin:`${2*height}px`,
+                top:`${t*height}px`,
+                left:`${2*width}px`,
+                fontWeight:'100'
+
+            }
+            return style;
+        },
+        username:function(flag){
+            let t
+            if(!flag)t=13;
+            else
+            t=6;
+            let width=window.innerWidth/100,height=window.innerHeight/100
+            let style={
+                height:`${5*height}px`,
+                width:`${20*width}px`,            
+                background:'white',
+                position:'relative',
+                border:`${0.2*height}px solid black`,
+               margin:`${2*height}px`,
+                top:`${t*height}px`,
+                left:`${2*width}px`,
+                fontSize:`${Math.min(1.5*height,1.5*width)}px`,
+                fontWeight:'100'
+
+            }
+            return style;
+        },
+        heading:function(flag){
+            let t
+            if(!flag)t=11;
+            else
+            t=4;
+            let width=window.innerWidth/100,height=window.innerHeight/100
+            let style={
+                            position:'relative',
+                                   //        margin:`${2*height}px`,
+                top:`${t*height}px`,
+                left:`${6*width}px`,
+               // fontSize:`${Math.min(1.5*height,1.5*width)}px`
+
+            }
+            return style;
+        },
+        button:function(flag){
+            let width=window.innerWidth/100,height=window.innerHeight/100
+            if(!flag)
+            {
+            let style={
+                height:`${5*height}px`,
+                width:`${10*width}px`,            
+                background:'light grey',
+                position:'relative',
+                border:`${0.2*height}px solid black`,
+               margin:`${2*height}px`,
+                top:`${17*height}px`,
+                right:`${2*width}px`,
+                fontSize:`${Math.min(1.5*height,1.5*width)}px`
+            }
+            return style;
+        }
+        else{
+            let style={
+                height:`${5*height}px`,
+                width:`${10*width}px`,            
+                background:'light grey',
+                position:'relative',
+                border:`${0.2*height}px solid black`,
+               margin:`${2*height}px`,
+                top:`${8*height}px`,
+                left:`${7*width}px`,
+                fontSize:`${Math.min(1.5*height,1.5*width)}px`
+            }
+            return style;
+        }
+        },
+        signin:function(flag){
+            let width=window.innerWidth/100,height=window.innerHeight/100
+            let style={
+              //  height:`${5*height}px`,
+                width:`${10*width}px`,            
+                background:'white',
+                position:'relative',
+                color:'black',
+                border:`${0.2*height}px solid white`,
+             //  margin:`${2*height}px`,
+                top:`${10*height}px`,
+                left:`${8.5*width}px`,
+                fontSize:`${Math.min(1.5*height,1.5*width)}px`
             }
             return style;
         }

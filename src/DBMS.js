@@ -28,7 +28,7 @@ export class DBMS_header extends React.Component{
         window.scrollTo(0,0)
 
        
-        ReactDOM.render(<Questions obj={dbmsobj}/>,document.getElementById('root'));
+        ReactDOM.render(<Questions logout={this.props.logout} obj={dbmsobj}/>,document.getElementById('root'));
     }
     render(){
         return(
@@ -51,7 +51,7 @@ export class Dbms_mockheader extends React.Component{
     }
     render(){
         return <div style={this.state.style}>
-            <Mocktest_block img={img} str={'dbms'} topic={"dbms"}/>
+            <Mocktest_block logout={this.props.logout}img={img} str={'dbms'} topic={"dbms"}/>
         </div>
     }
 }

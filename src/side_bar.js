@@ -2,12 +2,21 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Questions } from "./Questions.js";
 import { responsive } from "./responsive.js";
+import { jsobj } from "./JS.js";
+import { reactobj } from "./react.js";
+import { addresses } from "./index.js";
 export  class Side_bar extends React.Component{
     constructor(props){
         super(props)
         this.state={arr:this.props.arr,style:responsive.sidebar.main()}
         this.resize=this.resize.bind(this)
         window.addEventListener('resize',this.resize)
+    }
+    componentDidMount(){
+        addresses.Side_bar=this
+    }
+    componentDidUpdate(){
+        addresses.Side_bar=this
     }
     resize(){
         this.setState({arr:this.props.arr,style:responsive.sidebar.main()});
@@ -16,7 +25,7 @@ export  class Side_bar extends React.Component{
         return(
             <div style={this.state.style}>
                {
-                this.props.arr.map((ele)=><Element topic={ele[0]} img={ele[1]}/>)
+                this.props.arr.map((ele)=><Element logout={this.props.logout}topic={ele[0]} img={ele[1]}/>)
                }
             </div>
         )
@@ -30,13 +39,19 @@ class Element extends React.Component{
         window.addEventListener('resize',this.resize)
         this.handleclick=this.handleclick.bind(this)
     }
+    componentDidMount(){
+        addresses[this.props.topic]=this
+    }
+    componentDidUpdate(){
+        addresses[this.props.topic]=this
+    }
     resize(){
         this.setState({style:responsive.sidebar.Element(),text:responsive.sidebar.text(),image:responsive.sidebar.image(this.props.img)});
     }
     handleclick(){
         window.scrollTo(0,0)
         let n=getarray(this.props.topic,this.props.img);
-        ReactDOM.render(<Questions obj={n}/>,document.getElementById('root'));
+        ReactDOM.render(<Questions logout={this.props.logout}obj={n}/>,document.getElementById('root'));
 
     }
     render(){
@@ -110,21 +125,11 @@ function getarray(topic,img){
     }
     else if(topic=='React')
     {
-        obj={
-            image:img,
-            h1:'React',
-            subtopics:[['Process',img,0,'/os/process'],['Threads',img,1,'/os/threads'],['IPC',img,2,'/os/ipc'],['Kernel',img,3,'/os/kernel'],
-            ['Concurrency',img,4,'/os/concurrency'],['Algorithms',img,5,'/os/algo']]
-        }
+        return reactobj
     }
     else if(topic=='JavaScript')
     {
-        obj={
-            image:img,
-            h1:'JavaScript',
-            subtopics:[['Process',img,0,'/os/process'],['Threads',img,1,'/os/threads'],['IPC',img,2,'/os/ipc'],['Kernel',img,3,'/os/kernel'],
-            ['Concurrency',img,4,'/os/concurrency'],['Algorithms',img,5,'/os/algo']]
-        }
+        return jsobj
     }
     else if(topic=="Networking"){
         obj={

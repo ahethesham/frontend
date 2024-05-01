@@ -4,6 +4,7 @@ import img from './algorithms.png'
 import  ReactDOM  from "react-dom";
 import { Questions } from "./Questions.js";
 import { Mocktest_block } from "./Mocktest.js";
+import { addresses } from "./index.js";
 export let algoobj={
     image:img,
     h1:'Algorithms',
@@ -18,12 +19,18 @@ export class Algorithms extends React.Component{
         this.resize=this.resize.bind(this);
         window.addEventListener('resize',this.resize);
     }
+    componentDidMount(){
+        addresses.algorithms=this
+    }
+    componentDidUpdate(){
+        addresses.algorithms=this
+    }
     resize(){
         this.setState({style:responsive.dsa.Main(),image:responsive.dsa.image(img),text:responsive.dsa.text()});
     }
     handleClick(){
         window.scrollTo(0,0)
-        ReactDOM.render(<Questions obj={algoobj}/>,document.getElementById('root'));
+        ReactDOM.render(<Questions logout={this.props.logout} obj={algoobj}/>,document.getElementById('root'));
     }
     render(){
         return(
@@ -54,7 +61,7 @@ export class Algo_mockheader extends React.Component{
     }
     render(){
         return <div style={this.state.style}>
-            <Mocktest_block img={img} topic={'algo'}/>
+            <Mocktest_block logout={this.props.logout} img={img} topic={'algo'}/>
         </div>
     }
 }

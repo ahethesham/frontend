@@ -3,7 +3,7 @@ import {Heading} from './heading.js'
 import  ReactDOM  from "react-dom";
 import { responsive, responsive_mock } from "./responsive.js";
 import {Mocktest_block} from './Mocktest.js'
-import {Side_bar} from "./side_bar.js";
+import { addresses } from "./index.js";
 import img from './cpp.png'
 import { Questions } from "./Questions.js";
 export let cppobj={
@@ -19,14 +19,18 @@ export class Cpp_header extends React.Component{
         this.resize=this.resize.bind(this);
         window.addEventListener('resize',this.resize);
     }
+    componentDidMount(){
+        addresses.Cpp_header=this
+    }
+    componentDidUpdate(){
+        addresses.Cpp_header=this
+    }
     resize(){
         this.setState({style:responsive.dsa.Main(),text:responsive.dsa.text(),image:responsive.dsa.image(img)})
     }
     handleClick(){
         window.scrollTo(0,0)
-
-       
-        ReactDOM.render(<Questions obj={cppobj}/>,document.getElementById('root'));
+        ReactDOM.render(<Questions logout={this.props.logout}obj={cppobj}/>,document.getElementById('root'));
     }
     render(){
         return (
@@ -54,7 +58,7 @@ export class Cpp_mockheader extends React.Component{
     }
     render(){
         return<div style={this.state.style} >
-              <Mocktest_block img={img} str={'cpp'}topic={"cpp"} />
+              <Mocktest_block logout={this.props.logout}img={img} str={'cpp'}topic={"cpp"} />
         </div>
     }
 }

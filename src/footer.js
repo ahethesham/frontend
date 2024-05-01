@@ -87,7 +87,8 @@ class Footer_section extends React.Component{
       this.setState({style:responsive.footer.footer_section(),list:responsive.footer.list()})
    }
    handleclick(){
-      ReactDOM.render(<Questions obj={this.props.obj}/>,document.getElementById('root'))
+      window.scrollTo(0,0)
+      ReactDOM.render(<Questions logout={this.props.logout}obj={this.props.obj}/>,document.getElementById('root'))
    }
    render(){
       return(
@@ -95,7 +96,7 @@ class Footer_section extends React.Component{
             {this.props.obj.h1}
             <br/>
             <br/>
-            {this.props.obj.subtopics.map((ele)=><><a onClick={this.handleclick}style={this.state.list}>{ele[0]}</a><br/></>)}
+            {this.props.obj.subtopics.map((ele)=><><button onClick={this.handleclick}style={this.state.list}>{ele[0]}</button><br/></>)}
          </div>
       )
    }

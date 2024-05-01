@@ -8,6 +8,7 @@ import { Score_card } from './Score_card.js'
 export class Test_launch extends React.Component{
     constructor(props){
         super(props)
+
         this.state={
             arr:[],
             style:responsive_mock.test_page.instructions(),button:responsive_mock.test_page.button()
@@ -18,11 +19,16 @@ export class Test_launch extends React.Component{
     }
     render(){
         return <div >
-            <Heading/>
+            <Heading logout={this.props.logout}/>
             <div style={this.state.style}>
                 <h1 style={{color:'white'}}> {"Instructions"}</h1>
+                {'1.There will be a total of 10 Questions'}<br/><br/>
+                {'2.Each question will be allloted 20 seconds to answer'}<br/><br/>
+                {'3.Each correct answer carries 1 point'}<br/><br/>
+                {'4.There are no negetive marking for incorrect or unattempted answer'}<br/><br/>
+                {'5.You can click the END TEST button on top right corner to end the test anytime'}
             </div>
-            <button style={this.state.button} onClick={()=>{ReactDOM.render(<Test_page arr={this.state.arr}/>,document.getElementById('root'))}}>
+            <button style={this.state.button} onClick={()=>{ReactDOM.render(<Test_page logout={this.props.logout}topic={this.props.topic} arr={this.state.arr} index={this.props.index}/>,document.getElementById('root'))}}>
                 Start
             </button>
         </div>
@@ -32,7 +38,7 @@ export class Test_launch extends React.Component{
 export class Test_page extends React.Component{
     constructor(props){
         super(props)
-        this.state={ans:[0,0,0,0,0,0,0,0,0,0],index:0,time:10,timer:responsive_mock.test_page.timer(),question:responsive_mock.test_page.question(),tab:responsive_mock.test_page.tab()
+        this.state={ans:[0,0,0,0,0,0,0,0,0,0],index:0,time:20,timer:responsive_mock.test_page.timer(),question:responsive_mock.test_page.question(),tab:responsive_mock.test_page.tab()
         ,question_bar:responsive_mock.test_page.question_bar(),option_bar:responsive_mock.test_page.options.main(),options:responsive_mock.test_page.options.option(),
     end:responsive_mock.test_page.end(),question_text:responsive_mock.test_page.question_text()}
         this.resize=this.resize.bind(this)
@@ -62,15 +68,15 @@ export class Test_page extends React.Component{
         else
         document.getElementById(i).checked=false
         }
-        this.setState((prev)=>{return {ans:t,index:prev.index,time:prev.time,timer:prev.timer,question:prev.question,tab:prev.tab,question_bar:prev.question_bar,
-            option_bar:prev.option_bar,options:prev.options,question_text:prev.question_text}});
+        this.setState((prev)=>{return {ans:t,index:prev.index,time:0,timer:prev.timer,question:prev.question,tab:prev.tab,question_bar:prev.question_bar,
+            option_bar:prev.option_bar,options:prev.options,question_text:prev.question_text,end:prev.end}});
       }
     starttimer(){
-        if(this.state.time==0){
+        if(this.state.time<=0){
             for(let i=1;i<=4;i++)
             document.getElementById(i).checked=false
             if(this.state.index==this.props.arr.length-1){this.handleend();return;}
-            this.setState((prev)=>{return {ans:prev.ans,index:prev.index+1,time:10,timer:prev.timer,question:prev.question,tab:prev.tab,question_bar:prev.question_bar,
+            this.setState((prev)=>{return {ans:prev.ans,index:prev.index+1,time:20,timer:prev.timer,question:prev.question,tab:prev.tab,question_bar:prev.question_bar,
             option_bar:prev.option_bar,options:prev.options,question_text:prev.question_text}},this.starttimer);
             return;
         }
@@ -81,15 +87,17 @@ export class Test_page extends React.Component{
         },1000);
     }
     handleend(){
-        ReactDOM.render(<Score_card ans={this.state.ans}/>,document.getElementById('root'))
+        ReactDOM.render(<Score_card logout={this.props.logout}ans={this.state.ans} topic={this.props.topic}index={this.props.index}/>,document.getElementById('root'))
     }
+
     render(){
         return<div>
             <div style={this.state.question_bar}>
-            {this.props.arr.map((ele,ind)=><div style={this.state.tab}>{ind+1}</div>)}
+            {this.props.arr.map((ele,ind)=><div style={responsive_mock.test_page.tab(this.state.index,ind)}>{ind+1}</div>)}
             </div>
             <div style={this.state.timer}>{'00:'+this.state.time}</div>
-            <button style={this.state.end} onClick={this.handleend}>End Test</button>
+            <button style={this.state.end} onClick={this.handleend}>Quit</button>
+
             <div style={{position:'relative',display:'flex'}}>
             <div style={this.state.question}><textarea style={this.state.question_text} value={this.props.arr[this.state.index].question+this.props.arr[this.state.index].snippet}></textarea></div>
             <div style={this.state.option_bar}>

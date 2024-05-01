@@ -22,7 +22,7 @@ export class Java_header extends React.Component{
     handleclick(){
         window.scrollTo(0,0)
        
-        ReactDOM.render(<Questions obj={javaobj}/>,document.getElementById('root'));   
+        ReactDOM.render(<Questions logout={this.props.logout} obj={javaobj}/>,document.getElementById('root'));   
      }
     resize(){
         this.setState({style:responsive.java()})
@@ -30,7 +30,7 @@ export class Java_header extends React.Component{
     render(){
         return(
             <div style={this.state.style} onClick={this.handleclick}> 
-                <S2 main={"JAVA"} img={img}/>
+                <S2 logout={this.props.logout}main={"JAVA"} img={img}/>
             </div>
         )
     }
@@ -47,7 +47,7 @@ export class Java_mockheader extends React.Component{
     }
     render(){
         return <div style={this.state.style}>
-            <Mocktest_block img={img} str={'java'} topic={"java"}/>
+            <Mocktest_block logout={this.props.logout}img={img} str={'java'} topic={"java"}/>
         </div>
     }
 }

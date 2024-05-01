@@ -9,8 +9,8 @@ import { Questions } from "./Questions.js";
 export let reactobj={
     image:img,
     h1:'React',
-    subtopics:[['Process',img,0,'/os/process'],['Threads',img,1,'/os/threads'],['IPC',img,2,'/os/ipc'],['Kernel',img,3,'/os/kernel'],
-    ['Concurrency',img,4,'/os/concurrency'],['Algorithms',img,5,'/os/algo']]
+    subtopics:[['Components',img,0,'/react/component'],['States',img,1,'/react/state'],['Hooks',img,2,'/react/hooks'],['props',img,3,'/react/props'],
+    ['callbacks',img,4,'/react/callbacks'],['class components',img,5,'/react/class']]
 }
 export class React_header extends React.Component{
     constructor(){
@@ -24,7 +24,7 @@ export class React_header extends React.Component{
     handleclick(){
         window.scrollTo(0,0)
 
-        ReactDOM.render(<Questions obj={reactobj}/>,document.getElementById('root'));   
+        ReactDOM.render(<Questions logout={this.props.logout}obj={reactobj}/>,document.getElementById('root'));   
      }
     resize(){
         this.setState({style:responsive.React()})
@@ -32,7 +32,7 @@ export class React_header extends React.Component{
     render(){
         return(
             <div style={this.state.style} onClick={this.handleclick}> 
-                <S2 main={"React"} img={img}/>
+                <S2 logout={this.props.logout}main={"React"} img={img}/>
             </div>
         )
     }

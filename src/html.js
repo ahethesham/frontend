@@ -22,7 +22,7 @@ export class Html_header extends React.Component{
     handleclick(){
         window.scrollTo(0,0)
        
-        ReactDOM.render(<Questions obj={htmlobj}/>,document.getElementById('root'));   
+        ReactDOM.render(<Questions logout={this.props.logout}obj={htmlobj}/>,document.getElementById('root'));   
      }
     resize(){
         this.setState({style:responsive.html()})
@@ -30,7 +30,7 @@ export class Html_header extends React.Component{
     render(){
         return(
             <div style={this.state.style} onClick={this.handleclick}> 
-                <S2 main={"HTML"} img={img}/>
+                <S2 logout={this.props.logout}main={"HTML"} img={img}/>
             </div>
         )
     }
@@ -47,7 +47,7 @@ export class Html_mockheader extends React.Component{
     }
     render(){
         return <div style={this.state.style}>
-            <Mocktest_block img={img} str={"html"} topic={"html"}/>
+            <Mocktest_block logout={this.props.logout} img={img} str={"html"} topic={"html"}/>
         </div>
     }
 }

@@ -23,7 +23,7 @@ export class Os_header extends React.Component{
     }
     handleclick(){
         window.scrollTo(0,0)
-        ReactDOM.render(<Questions obj={osobj}/>,document.getElementById('root'));   
+        ReactDOM.render(<Questions logout={this.props.logout}obj={osobj}/>,document.getElementById('root'));   
      }
     resize(){
         this.setState((prev)=>{return {arr:prev.arr,style:responsive.OS()}})
@@ -31,7 +31,7 @@ export class Os_header extends React.Component{
     render(){
         return(
             <div style={this.state.style} onClick={this.handleclick}> 
-                <S2 main={"Opearating Systems"} topics={this.state.arr} img={img} />
+                <S2 logout={this.props.logout}main={"Opearating Systems"} topics={this.state.arr} img={img} />
             </div>
         )
     }
