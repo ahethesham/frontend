@@ -1,5 +1,5 @@
-let heading_color='rgb(188,206,187)',h_font="black"
-let side_color='aliceblue'
+let heading_color='black',h_font="white"
+let side_color='rgb(64,66,64)'
 export function mode(){
     if(heading_color=='rgb(188,206,187)')
     {
@@ -17,6 +17,195 @@ export function mode(){
     }
 }
 export const responsive={
+    RoadMap:{
+        img:function(){
+            let width=window.innerWidth/100,height=window.innerHeight/100
+            let style={
+                position:'relative',
+                height:`${100*height}px`,
+                width:`${100*width}px`,
+               top:`${20*height}px`,
+               left:`${10*width}px`
+            }
+            return style;
+        }
+    },
+    recommend:{
+        Main:function(){
+            let width=window.innerWidth/100,height=window.innerHeight/100
+            let style={
+                position:'relative',
+                height:`${55*height}px`,
+                width:`${55*width}px`,
+                overflowX:'auto',
+                color:h_font,
+                fontSize:`${Math.min(3*height,3*width)}px`,
+                backgroundColor:'',
+             // border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
+                bottom:`${15*height}px`,
+                left:`${40*width}px`,
+                display:'flex'
+            }
+            return style;
+        },
+        buttonl:function(){
+            let width=window.innerWidth/100,height=window.innerHeight/100
+        let style={
+            position:'relative',
+            width:`${Math.min(4*height,4*width)}px`,
+            height:`${Math.min(4*height,4*width)}px`,
+            border:`${Math.min(0.2*height,0.1*width)}px solid grey`,
+            fontSize:`${Math.min(2*height,2*width)}px`,
+            borderRadius:`${4*width}px`,
+            display:'inline',
+            color:h_font,
+            top:`${14*height}px`,
+            background:'transparent',
+           // left:`${2*width}px`
+        }
+        return style
+    },
+        buttonr:function(){
+            let width=window.innerWidth/100,height=window.innerHeight/100
+        let style={
+            position:'relative',
+            width:`${Math.min(4*height,4*width)}px`,
+            height:`${Math.min(4*height,4*width)}px`,
+            border:`${Math.min(0.2*height,0.1*width)}px solid grey`,
+            fontSize:`${Math.min(2*height,2*width)}px`,
+            borderRadius:`${4*width}px`,
+            display:'inline',
+           color:h_font,
+           backgroundColor:'black',
+            top:`${17*height}px`,
+            background:'transparent',
+            left:`${5*width}px`
+        }
+        return style;
+    },
+        Element:function(flag){
+            let width=window.innerWidth/100,height=window.innerHeight/100
+            if(flag){
+                let style={
+                    position:'relative',
+                    height:`${Math.min(40*height,39*width)}px`,
+                    width:`${Math.min(40*height,39*width)}px`,
+                   color:h_font,
+                    top:`${3*height}px`,
+                    fontSize:`${Math.min(3*height,3*width)}px`,
+                //   backgroundColor:'black',
+                  border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
+                  borderRadius:`${Math.min(30*height,29*width)}px`,
+                 marginRight:`${1*width}px`,
+                 marginLeft:`${1*width}px`,
+                 overflow:'hidden',
+                 left:`${2*width}px`,
+                 boxShadow:`0px 2px 10px`,
+
+                }
+                return style
+            }
+            else{
+                let style={
+                    
+                    position:'relative',
+                    height:`${Math.min(10*height,10*width)}px`,
+                    width:`${Math.min(10*height,10*width)}px`,
+                   color:h_font,
+                    top:`${11*height}px`,
+                    fontSize:`${Math.min(3*height,3*width)}px`,
+                  //  backgroundColor:'black',
+                    borderRadius:`${Math.min(10*height,10*width)}px`,
+                    border:`${Math.min(0.1*height,0.1*width)}px solid grey`,
+                    marginRight:`${1*width}px`,
+                    overflow:'hidden',
+                    left:`${2*width}px`,
+                    boxShadow:`0px 1px 5px`,
+
+                }
+                return style;
+            }
+        },
+        image:function(flag,img){
+            let width=window.innerWidth/100,height=window.innerHeight/100
+            if(flag)
+            {
+            let style={
+                position:'relative',
+                height:`${Math.min(28*height,25*width)}px`,
+                width:`${Math.min(28*height,25*width)}px`,
+                backgroundImage:`url(${img})`,
+                backgroundRepeat:`no-repeat,no-repeat`,
+                backgroundSize:`${Math.min(28*height,28*width)}px ${Math.min(28*height,25*width)}px`,
+                top:`${4*height}px`,
+               left:`${3*width}px`,
+                backgroundPositionY:'center',
+                backgroundPositionX:'center',
+
+            }
+            return style
+            }
+            else{
+                let style={
+                    position:'relative',
+                    height:`${3*height}px`,
+                    width:`${4*width}px`,
+                    backgroundImage:`url(${img})`,
+                    backgroundRepeat:`no-repeat,no-repeat`,
+                    backgroundSize:`${2*width}px ${3*height}px`,
+                    top:`${3*height}px`,
+                    left:`${0.5*width}px`,
+                   // right:`${8*width}px`,
+                    backgroundPositionY:'center',
+                    backgroundPositionX:'center',
+
+                }
+                return style
+            }
+        },
+        text:function(flag){
+            let width=window.innerWidth/100,height=window.innerHeight/100
+          if(flag)
+          {
+          let style={
+              height:`${4*height}px`,
+              position:'relative',
+              background:'transparent',
+              overflow:'hidden',
+              width:`${10*width}px`,
+              top:`${4*height}px`,
+              border:`${Math.min(1*height,1*width)}px transparent`,
+             left:`${3*width}px`,
+              fontSize:`${Math.min(2*height,2*width)}px`,
+              color:h_font,
+              textAlign:'center',
+              fontWeight:'100'
+          }
+          return style
+
+          }
+          else{
+              let style={
+                  height:`${2*height}px`,
+                  position:'relative',
+                  background:'transparent',
+                  overflow:'hidden',
+                  width:`${10*width}px`,
+                  top:`${4*height}px`,
+                  right:`${2.5*width}px`,
+                  border:`${Math.min(1*height,1*width)}px transparent`,
+                  fontSize:`${Math.min(1*height,1*width)}px`,
+               color:h_font,
+                  textAlign:'center',
+                  fontWeight:'100'
+
+              }
+              return style
+          }
+      }
+        
+
+    },
     explore:{
         Main:function(){
             let width=window.innerWidth/100,height=window.innerHeight/100
@@ -35,7 +224,7 @@ export const responsive={
                 boxShadow:'0px 3px 5px',
                 display: 'flex',
                 alignItems: 'center',
-              //  justifyContent: 'center',
+                justifyContent: 'center',
               
             }
             return main;

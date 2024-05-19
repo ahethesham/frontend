@@ -8,6 +8,7 @@ import { addresses } from "./index.js";
 import lightimg from './lightmode.png'
 import { mode2 } from "./responsive_02.js";
 import { Hosting } from "./Hosting/index.js";
+import image from "./Roadmap.png"
 function updateresize(){
     mode()
     mode2()
@@ -34,6 +35,9 @@ export class Heading extends React.Component{
     resize(){
         this.setState((prev)=>{return {flag:prev.flag,box:responsive.heading.header_box(),header_button:responsive.heading.header_button(),style:responsive.heading.main(),h1:responsive.heading.exit(),account:responsive.heading.account(accountimg)}});
     }
+    roadmap(){
+        ReactDOM.render(<RoadMap/>,document.getElementById('root'));
+    }
     render(){
         return(
             <div style={this.state.style}>
@@ -46,7 +50,7 @@ export class Heading extends React.Component{
                 <button style={this.state.header_button} onClick={()=>{ReactDOM.render(<Track_progress logout={this.props.logout}/>,document.getElementById('root'))}}>Progress</button>
                 <button style={this.state.header_button} onClick={async ()=>{await this.props.logout();       ReactDOM.render(<Main logged_in={false}/>,document.getElementById('root'))
 }}> Sign Out</button>
-                <button style={this.state.header_button}> Account</button>
+                <button style={this.state.header_button} onClick={this.roadmap}>Road Map</button>
             </div>
             <button style={this.state.account} onClick={()=>{
                 if(this.state.flag)
@@ -83,5 +87,28 @@ class Account_info extends React.Component{
             <button style={this.state.sub} onClick={async ()=>{await this.props.logout();ReactDOM.render(<Main logged_in={false}/>,document.getElementById('root'))}}>Sign Out</button>
 
         </div>
+    }
+}
+
+
+class RoadMap extends React.Component{
+    constructor(){
+        super()
+        this.state={img:responsive.RoadMap.img()}
+        this.resize=this.resize.bind(this)
+        window.addEventListener('resize',this.resize)
+    }
+    resize(){
+        this.setState({img:responsive.RoadMap.img()})
+    }
+    render(){
+        return(
+        <div>
+            <Heading/>
+            <div style={this.state.img}>
+            <img src={image}/>
+            </div>
+        </div>
+        )
     }
 }

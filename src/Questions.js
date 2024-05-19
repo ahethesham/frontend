@@ -4,6 +4,8 @@ import {Heading} from './heading.js'
 import { Footer } from "./footer.js";
 import { addresses } from "./index.js";
 import { Explore_header } from "./Explore.js";
+import { Scroll_header } from "./Scroll_bar.js";
+import { Recommendations } from "./Recommendatios.js";
 let address=[];
 let ans=[],Q
 export class Questions extends React.Component{
@@ -51,7 +53,7 @@ export class Questions extends React.Component{
             </div>  
             <Q_bar link={'http://localhost:8000'+this.props.obj.subtopics[this.state.index][3]}/>
             <div style={this.state.footer}>
-           <Explore_header/>
+                <Recommendations logout={this.props.logout}/>
            <Footer/>
            </div>
          </div>

@@ -23,7 +23,7 @@ import {reactobj} from './react.js'
 import {cnobj} from './cn.js'
 import {htmlobj} from './html.js'
 import { addresses } from "./index.js";
-let arr=[['C++',cppimg,0,cppobj],['Operating\nSystem',osimg,1,osobj],['React',reactimg,2,reactobj],['Data\nStructures',dsimg,3,dsobj],['Algorithms',algoimg,4,algoobj],['JavaScript',jsimg,5,jsobj],['Java',javaimg,6,javaobj]
+let arr=[['C++',cppimg,0,cppobj],['Operating\nSystem',osimg,1,osobj],['React',reactimg,2,reactobj],['Data\nStructures',dsimg,3,htmlobj],['Algorithms',algoimg,4,algoobj],['JavaScript',jsimg,5,jsobj],['Java',javaimg,6,javaobj]
 ,['DBMS',dbmsimg,7,dbmsobj],['Networking',cnimg,8,cnobj],['HTML',htmlimg,9,htmlobj]]
 
 let address=[null,null,null]

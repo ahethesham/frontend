@@ -2,10 +2,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { responsive_auth} from "./responsive.js";
-
+function encrypt(str){
+    return str;
+}
 export class Authentication extends React.Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state={details:{username:'',password:''},create:false,style:responsive_auth.Main.cover(),button:responsive_auth.Main.button(0),heading:responsive_auth.Main.heading(0),signin:responsive_auth.Main.signin(0),
             header:responsive_auth.Main.header(0),username:responsive_auth.Main.username(0),label:responsive_auth.Main.usernamelabel(0)}
             this.handleclick=this.handleclick.bind(this)
@@ -19,6 +21,7 @@ export class Authentication extends React.Component{
         let new_user={username:'',password:''}
       new_user.username=document.getElementById('username').value
       new_user.password=document.getElementById('password').value
+      new_user.password=encrypt(new_user.password);
       fetch('http://localhost:8000/auth/login',{
         method:'POST',
         body:JSON.stringify(new_user),
@@ -48,6 +51,7 @@ export class Authentication extends React.Component{
       new_user.username=document.getElementById('username').value
       new_user.password=document.getElementById('password').value
       if(!verify(new_user))return;
+      new_user.password=encrypt(new_user.password);
         fetch('http://localhost:8000/auth/new_user',{
             method:'POST',
             body:JSON.stringify(new_user),
