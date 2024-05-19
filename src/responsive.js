@@ -17,6 +17,84 @@ export function mode(){
     }
 }
 export const responsive={
+    explore:{
+        Main:function(){
+            let width=window.innerWidth/100,height=window.innerHeight/100
+            let main={
+                color:h_font,
+                height:`${30*height}px`,
+                width:`${100*width}px`,
+                fontSize:`${Math.min(1*height,1*width)}px`,
+                zIndex:'1',
+                backgroundColor:heading_color,
+                position:'relative',
+                bottom:`${20*height}px`,
+                 left: `${20*height}px` ,
+                 overflowX:'scroll',
+                 overflowY:'scroll',
+                boxShadow:'0px 3px 5px',
+                display: 'flex',
+                alignItems: 'center',
+              //  justifyContent: 'center',
+              
+            }
+            return main;
+        },
+        Element:function(){
+            let width=window.innerWidth/100,height=window.innerHeight/100
+            let style={
+                position:'relative',
+                height:`${20*height}px`,
+                width:`${15*width}px`,
+                left:`${2*width}px`,
+                border:`${Math.min(0.1*height,0.1*width)}px black`,
+                fontSize:`${Math.min(1*height,1*width)}px`,
+                textAlign:'center',
+              //  backgroundColor:'black',
+              //  boxShadow:'0px 5px 10px',
+                //overflowX:'scroll',
+
+                //marginLeft:`${1*width}px`,
+                marginRight:`${1*width}px`,
+
+            }
+            return style;
+        },
+        image:function(image){
+            let width=window.innerWidth/100,height=window.innerHeight/100
+        let style={
+            position:'relative',
+            height:`${15*height}px`,
+            width:`${10*width}px`,
+            backgroundImage:`url(${image})`,
+            backgroundRepeat:`no-repeat,no-repeat`,
+            backgroundSize:`${8*width}px ${12*height}px`,
+            backgroundPositionY:'center',
+            backgroundPositionX:'center',
+
+        }
+        return style;
+        },
+        text:function(){
+            let width=window.innerWidth/100,height=window.innerHeight/100
+
+            let style={
+                background:'transparent',
+                fontSize:`${Math.min(2*height,2*width)}px`,
+                color:h_font,
+               // bottom:`${30*height}px`,
+             //   height:`${25*height}px`,
+                border:'0px solid black',
+             //   left:`${12*width}px`,
+                position:'relative',
+                width:`${5*width}px`,
+                fontFamily:"Courier New",
+                fontWeight:'bold'
+            }
+            return style
+        }
+
+    },
     heading:{
         main:function(){
         let width=window.innerWidth/100,height=window.innerHeight/100

@@ -13,7 +13,7 @@ import {cnobj} from './cn.js'
 import {htmlobj} from './html.js'
 import img from './cpp.png'
 import { Questions } from "./Questions.js";
-//let arr=[cppobj,javaobj,reactobj,dsobj,algoobj,jsobj,osobj,dbmsobj,cnobj,htmlobj]
+let arr=[cppobj,javaobj,reactobj,algoobj,jsobj,osobj,dbmsobj,cnobj,htmlobj,cppobj,javaobj,reactobj,algoobj,jsobj,osobj,dbmsobj,cnobj,htmlobj,cppobj,javaobj,reactobj,algoobj,jsobj,osobj,dbmsobj,cnobj,htmlobj,cppobj,javaobj,reactobj,algoobj,jsobj,osobj,dbmsobj,cnobj,htmlobj]
 export class Explore_header extends React.Component{
     constructor(){
         super()
@@ -27,7 +27,9 @@ export class Explore_header extends React.Component{
     render(){
         return (
             <div style={this.state.style}>
-                Explore...
+                {arr.map((ele)=>{
+                    return <Explore obj={ele}/>
+                })}
             </div>
         )
     }

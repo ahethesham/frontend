@@ -3,6 +3,7 @@ import { responsive } from "./responsive.js";
 import {Heading} from './heading.js'
 import { Footer } from "./footer.js";
 import { addresses } from "./index.js";
+import { Explore_header } from "./Explore.js";
 let address=[];
 let ans=[],Q
 export class Questions extends React.Component{
@@ -50,6 +51,7 @@ export class Questions extends React.Component{
             </div>  
             <Q_bar link={'http://localhost:8000'+this.props.obj.subtopics[this.state.index][3]}/>
             <div style={this.state.footer}>
+           <Explore_header/>
            <Footer/>
            </div>
          </div>
